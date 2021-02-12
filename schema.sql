@@ -44,7 +44,7 @@ create table if not exists employees
     check ( phone ~ '^\+?(\d{0,3}\-?)(\d{0,3}\-?)(\d{0,3}\-?)(\d{0,3}\-?)(\d{0,3})'
         or phone is null ),
 
-    check ( e_mail ~* '^[a-zA-Z]+[_-]?[a-zA-Z]+@[a-zA-Z_]+?\.[a-zA-Z]{2,4}$'
+    check ( e_mail ~* '^[a-zA-Z]+[_-]?[a-zA-Z0-9]+@[a-zA-Z_]+?\.[a-zA-Z]{2,4}$'
         or e_mail is null )
 );
 

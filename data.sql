@@ -54,4 +54,11 @@ VALUES ('Полина', 'Большакова', '8-922-231-000', 'aojv@mail.ru',
        ('Ольга', 'Соловьева', '8-922-231-020', 'olga@gmail.com', 'seller', 9),
        ('Елизавета', 'Сорокина', '8-922-231-021', 'liza@gmail.com', 'seller', 10),
        ('Руслан', 'Трифонов', '8-922-231-022', 'ruslan@gmail.com', 'seller', 11),
-       ('Михаил', 'Успенский', '8-922-231-023', 'uspex@gmail.com', 'manager', 12)
+       ('Михаил', 'Успенский', '8-922-231-023', 'uspex@gmail.com', 'manager', 12);
+
+
+-- shops-employess: set manager id
+update shops
+set manager_id = e.id
+from (select * from employees where job_name = 'manager') e
+where shops.id = e.shop_id

@@ -10,9 +10,6 @@ create table products
     name varchar(200)        -- null
 );
 
-alter sequence products_id_seq rename to products_pk;
-alter index products_code_key rename to products_code_uk;
-
 
 
 /* SHOPS ---------------------------------------------------- */
@@ -69,8 +66,10 @@ create table if not exists purchases
 /* PURCHASES_RECEIPTS --------------------------------------- */
 create table if not exists purchases_receipts
 (
-    purchase_id     serial,
-    oridnal_number  serial,
+    purchase_id     serial, ---
+                                --- pk
+    oridnal_number  serial, ---
+
     product_id      integer, --fk
     quantity        numeric(25, 5), -- null
     amount_full     numeric(18, 2), -- null

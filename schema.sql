@@ -36,8 +36,8 @@ create table if not exists shops
 create table if not exists employees
 (
     id         serial primary key,
-    first_name varchar(100) default null, -- null
-    last_name  varchar(100) default null, -- null
+    first_name varchar(100),              -- null
+    last_name  varchar(100),              -- null
     phone      varchar(50),               -- null
     e_mail     varchar(50),               -- null
     job_name   varchar(50),               -- null
@@ -73,11 +73,33 @@ create table if not exists purchases_receipts
     oridnal_number  serial,
     product_id      integer, --fk
     quantity        numeric(25, 5), -- null
-    amount_full     numeric(18, 2),
-    amount_discount numeric(18, 2),
+    amount_full     numeric(18, 2), -- null
+    amount_discount numeric(18, 2), -- null
 
     primary key (purchase_id, oridnal_number)
 );
 
 
 /* SETTING FKeys -------------------------------------------- */
+alter table shops
+    add foreign key (manager_id)
+        references employees (id);
+
+
+alter table employees
+    add foreign key (shop_id)
+        references shops (id);
+
+alter table purchases
+    add foreign key (seller_id)
+        references employees (id);
+
+
+alter table purchases_receipts
+    add foreign key (purchase_id)
+        references purchases (id);
+
+
+alter table purchases_receipts
+    add foreign key (product_id)
+        references products (id);

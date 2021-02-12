@@ -22,9 +22,7 @@ create table if not exists shops
     address    varchar(200), -- null
     manager_id integer,      -- null, fk
 
-    check ( city ~* '^[^0-9]+$' or city is null ),
-    check ( address ~* '^[^0-9]+$' or address is null ),
-    check ( region ~* '^[^0-9]+$' or region is null )
+    check ( city ~* '^[^0-9]+$' or city is null )
 );
 
 

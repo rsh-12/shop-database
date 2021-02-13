@@ -61,4 +61,25 @@ VALUES ('Полина', 'Большакова', '8-922-231-000', 'aojv@mail.ru',
 update shops
 set manager_id = e.id
 from (select * from employees where job_name = 'manager') e
-where shops.id = e.shop_id
+where shops.id = e.shop_id;
+
+
+-- purchases
+insert into purchases(datetime, amount, seller_id)
+VALUES (current_timestamp - interval '1' month, 18000, 1),
+       (current_timestamp - interval '2' month, 6800, 2),
+       (current_timestamp - interval '1' month, 3200, 3),
+       (current_timestamp - interval '1' month, 9000, 4),
+       (current_timestamp - interval '2' month, 17000, 6),
+       (current_timestamp - interval '1' month, 1325, 7),
+       (current_timestamp - interval '1' month, 89000, 8);
+
+-- purchases_receipts
+insert into purchases_receipts(purchase_id, product_id, quantity, amount_full, amount_discount)
+values (1, 1, 4, 20000, 2000),
+       (2, 2, 1, 7000, 200),
+       (3, 3, 4, 4000, 800),
+       (4, 4, 18, 9000, 0),
+       (5, 5, 1, 17000, 0),
+       (6, 6, 1, 1500, 175),
+       (7, 7, 10, 10000, 11000);

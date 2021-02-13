@@ -57,3 +57,17 @@ order by income;
 
 select *
 from last_month_regions;
+
+-- №7
+create view discrepancy as
+select s.name                                   as shop_name,
+       datetime::date                           as day,
+       amount - (amount_full - amount_discount) as difference
+from purchases
+         join purchases_receipts pr on purchases.id = pr.purchase_id
+         join employees e on purchases.seller_id = e.id
+         join shops s on e.shop_id = s.id
+where amount <> (pr.amount_full - amount_discount);
+
+select *
+from discrepancy;

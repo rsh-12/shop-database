@@ -65,13 +65,13 @@ where shops.id = e.shop_id;
 
 
 -- purchases
-insert into purchases(datetime, amount, продавец_id)
-VALUES (current_timestamp - interval '1' month, 18000, 1),
-       (current_timestamp - interval '2' month, 6800, 2),
-       (current_timestamp - interval '1' month, 3200, 3),
+insert into purchases(datetime, amount, seller_id)
+VALUES (current_timestamp - interval '2' month, 18000, 1),
+       (current_timestamp - interval '1' month, 6800, 2),
+       (current_timestamp - interval '2' month, 3200, 3),
        (current_timestamp - interval '1' month, 9000, 4),
-       (current_timestamp - interval '2' month, 17000, 6),
-       (current_timestamp - interval '1' month, 1325, 7),
+       (current_timestamp - interval '1' month, 17000, 6),
+       (current_timestamp - interval '2' month, 1325, 7),
        (current_timestamp - interval '1' month, 89000, 8);
 
 -- purchases_receipts

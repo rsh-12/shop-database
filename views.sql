@@ -44,3 +44,16 @@ select *
 from last_month_amounts;
 
 
+-- №6
+create or replace view last_month_regions as
+select s.region, sum(amount) as income
+from employees
+         join shops s on employees.shop_id = s.id
+         join purchases p on employees.id = p.seller_id
+where datetime < current_date
+  and datetime >= current_date - interval '1' month
+group by s.region
+order by income;
+
+select *
+from last_month_regions;

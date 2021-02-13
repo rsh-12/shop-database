@@ -41,7 +41,7 @@ create table if not exists employees
     check ( first_name ~* '^[^0-9]+$' or first_name is null ),
     check ( last_name ~* '^[^0-9]+$' or last_name is null ),
 
-    check ( phone ~ '^\+?(\d{0,3}\-?)(\d{0,3}\-?)(\d{0,3}\-?)(\d{0,3}\-?)(\d{0,3})'
+    check ( phone ~ '^(\+7|[1-9])([0-9]{0,3}\-?)([0-9]{0,3}\-?)([0-9]{0,3}\-?)([0-9]{0,3}\-?)([0-9]{0,3})$'
         or phone is null ),
 
     check ( e_mail ~* '^[a-zA-Z]+[_-]?[a-zA-Z0-9]+@[a-zA-Z_]+?\.[a-zA-Z]{2,4}$'

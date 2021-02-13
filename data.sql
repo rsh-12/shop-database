@@ -59,7 +59,7 @@ VALUES ('Полина', 'Большакова', '8-990-271-000', 'aojv@mail.ru',
 
 -- shops-employess: set менеджер id
 update shops
-set менеджер_id = e.id
+set manager_id = e.id
 from (select * from employees where job_name = 'менеджер') e
 where shops.id = e.shop_id;
 

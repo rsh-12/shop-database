@@ -27,7 +27,7 @@ create table if not exists shops
 
 
 
-/* EMPLOYESS ------------------------------------------------ */
+/* EMPLOYEES ------------------------------------------------ */
 create table if not exists employees
 (
     id         serial primary key,
